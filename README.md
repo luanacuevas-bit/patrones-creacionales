@@ -1,74 +1,31 @@
-Patrones Creacionales – Singleton, Factory y Builder
-📖 Descripción
+# Patrones de Diseño Creacionales — POO II UNA Puno
 
-Este repositorio contiene la implementación práctica de tres patrones de diseño creacionales en el contexto de la Programación Orientada a Objetos:
+Implementaciones de los patrones Singleton, Builder y Factory Method para la Semana 4-5.
 
-Singleton (C++)
-Factory Method (Python)
-Builder (Python)
+## Archivos
 
-El objetivo del proyecto es demostrar cómo estos patrones desacoplan la lógica de creación de objetos de la lógica de negocio, mejorando la mantenibilidad, escalabilidad y organización del software.
+- singleton.cpp — Patrón Singleton en C++
+- builder.py — Patrón Builder en Python
+- factory.py — Patrón Factory Method en Python
 
-🧠 Patrones Implementados
-🔹 1. Singleton (C++)
+## Cómo ejecutar
 
-Garantiza que una clase tenga una única instancia durante toda la ejecución del programa y proporciona un punto de acceso global a ella.
+Python:
+```bash
+python builder.py
+python factory.py
+```
 
-Ejemplo aplicado: Configuración global del sistema.
-
-🔹 2. Factory Method (Python)
-
-Centraliza la creación de objetos concretos a través de una clase fábrica, evitando que el cliente instancie clases directamente.
-
-Ejemplo aplicado: Creación de diferentes medios de transporte (Camión, Barco, Avión, Drone).
-
-🔹 3. Builder (Python)
-
-Permite construir objetos complejos paso a paso utilizando una interfaz fluida.
-
-Ejemplo aplicado: Construcción de combos de fast food personalizados (Básico, Premium, Infantil).
-
-🛠 Tecnologías Utilizadas
-C++ (estándar C++11 o superior)
-Python 3.x
-Programación Orientada a Objetos
-Principios SOLID
-▶️ Cómo Ejecutar el Proyecto
-🔹 Ejecutar Singleton (C++)
+C++:
+```bash
 g++ singleton.cpp -o singleton
 ./singleton
-🔹 Ejecutar Factory (Python)
-python factory.py
-🔹 Ejecutar Builder (Python)
-python builder.py
-📂 Estructura del Proyecto
-patrones-creacionales/
-│
-├── singleton_cpp/
-│   └── singleton.cpp
-│
-├── factory_python/
-│   └── factory.py
-│
-├── builder_python/
-│   └── builder.py
-│
-├── docs/
-│   └── uml/
-│       ├── singleton_uml.txt
-│       ├── factory_uml.txt
-│       └── builder_uml.txt
-│
-└── README.md
-📊 Resultados
-Se verificó que Singleton mantiene una única instancia.
-Factory permite agregar nuevos tipos sin modificar el código cliente.
-Builder facilita la construcción de objetos complejos evitando constructores extensos.
-👩‍💻 Información Académica
+```
 
-Universidad: Universidad Nacional del Altiplano
-Escuela Profesional: Ingeniería de Sistemas
-Curso: Lenguajes de Programación Orientada a Objetos II
-Docente: Mg. Aldo Hernán Zanabria Gálvez
-Estudiante: Cuevas Yucra Angheli Luana
-Año: 2026
+## Qué hace cada patrón
+
+**Singleton** garantiza que una clase tenga una sola instancia en todo el programa. Se logra haciendo el constructor privado y exponiendo un método estático llamado getInstance() que crea la instancia solo la primera vez y la reutiliza siempre.
+
+**Builder** separa la construcción de un objeto complejo de su representación. En lugar de pasar todos los parámetros al constructor de golpe, se configuran paso a paso con métodos encadenables. Cada método retorna el mismo Builder (return self) para poder seguir encadenando. Al final se llama build() que valida y entrega el objeto.
+
+**Factory Method** centraliza la creación de objetos en un solo lugar. El cliente pide un objeto por tipo (por ejemplo "camion" o "avion") sin saber qué clase concreta se instancia internamente. Esto permite agregar nuevos tipos sin modificar el código existente.
